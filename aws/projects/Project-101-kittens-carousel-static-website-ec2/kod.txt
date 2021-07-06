@@ -16,13 +16,14 @@ Resources:
         FromPort: 22
         ToPort: 22
         CidrIp: 0.0.0.0/0
+         #Aşağı instance yaz ec2-intance aws tıkla
   WebServerHost:
     Type: AWS::EC2::Instance
     Properties:
-      ImageId: ami-0ab4d1e9cf9a1215a
-      InstanceType: t2.micro
-      KeyName: ec2_key
-      SecurityGroupIds:
+      ImageId: ami-0ab4d1e9cf9a1215a #ec2 dan launch instanceyi seç oradaki (Step 1: Choose an Amazon Machine Image (AMI) amazom ami deki numarayı kopyala
+      InstanceType: t2.micro #Step 2: Choose an Instance Type daki seçtiğin makinenin adını ver.
+      KeyName: ec2_key #.pem dosyamın adını yaz
+      SecurityGroupIds: #birinci satırda ne yazzdıysak aynısını alıp buraya yapıştır. başında - !Ref olmalı #yani şuraya git demek.
         - !Ref WebServerSecurityGroup
       Tags:
         - Key: Name
@@ -33,7 +34,7 @@ Resources:
             #! /bin/bash
             yum update -y
             yum install httpd -y
-            FOLDER="https://raw.githubusercontent.com/ihkaradag025/Myproject/main/aws/projects/Project-101-kittens-carousel-static-website-ec2/static-web"
+            FOLDER="https://raw.githubusercontent.com/vnczalt-17/my-projects/main/aws/projects/Project-101-kittens-carousel-static-website-ec2/static-web"
             cd /var/www/html
             wget $FOLDER/index.html
             wget $FOLDER/cat0.jpg

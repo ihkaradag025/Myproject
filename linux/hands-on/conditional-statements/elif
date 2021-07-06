@@ -1,0 +1,10 @@
+#!/bin/bash
+read -p "input a number: " number
+if [[ $number -eq 10  ]]; then
+        echo " 10 a eşit"
+elif [[ $number -gt 10 ]]
+then
+        echo "10 dan büyük"
+else
+        echo "10 dan küçük"
+fi

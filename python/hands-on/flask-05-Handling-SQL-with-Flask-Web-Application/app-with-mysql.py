@@ -1,13 +1,10 @@
 # Import Flask modules
 from flask import Flask, render_template, request
 from flaskext.mysql import MySQL
-
 # Create an object named app
 app = Flask(__name__)
-
-
 # Configure mysql database
-app.config['MYSQL_DATABASE_HOST'] = 'database-08-amazon.cevpiguvhegz.us-east-1.rds.amazonaws.com'
+app.config['MYSQL_DATABASE_HOST'] = 'PLEASE WRITE HERE YOUR RDS ENDPOINT'
 app.config['MYSQL_DATABASE_USER'] = 'admin'
 app.config['MYSQL_DATABASE_PASSWORD'] = 'Clarusway_1'
 app.config['MYSQL_DATABASE_DB'] = 'clarusway'
@@ -17,9 +14,6 @@ mysql.init_app(app)
 connection = mysql.connect()
 connection.autocommit(True)
 cursor = connection.cursor()
-
-
-
 # Create users table within MySQL db and populate with sample data
 # Execute the code below only once.
 # Write sql code for initializing users table..
@@ -38,12 +32,9 @@ VALUES
     ("Tugce", "tugce@mercedes.com"),
 	("Anil", "anil@porche.com");
 """
-
 cursor.execute(drop_table)
 cursor.execute(users_table)
 cursor.execute(data)
-
-
 # Write a function named `find_emails` which find emails using keyword from the user table in the db,
 # and returns result as tuples `(name, email)`.
 def find_emails(keyword):
@@ -106,5 +97,5 @@ def add_email():
         return render_template('add-email.html', show_result=False)
 # Add a statement to run the Flask application which can be reached from any host on port 80.
 if __name__ == '__main__':
-    app.run(debug=True)
-  # app.run(host='0.0.0.0', port=80)
+   # app.run(debug=True)
+   app.run(host='0.0.0.0', port=80)

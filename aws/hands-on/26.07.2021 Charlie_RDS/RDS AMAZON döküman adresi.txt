@@ -1,0 +1,8 @@
+Charlie  9:48 PM
+https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PIOPS.StorageTypes.html#USER_PIOPS.Autoscaling
+docs.aws.amazon.comdocs.aws.amazon.com
+Working with storage for Amazon RDS DB instances - Amazon Relational Database Service
+To specify how you want your data stored in Amazon RDS, choose a storage type and provide a 
+storage size when you create or modify a DB instance. Later, you can increase the amount or change the 
+type of storage by modifying the DB instance. For more information about which storage type to use for your workload, 
+see
